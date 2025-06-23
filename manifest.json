@@ -1,0 +1,21 @@
+{
+  "name": "实时工资激励器",
+  "short_name": "工资激励",
+  "description": "实时计算和展示你的工资，AI智能激励，金币动画，目标管理，情绪识别。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#FFD700",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

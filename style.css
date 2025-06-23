@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans SC', sans-serif;
+    background: #1a1a1a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    text-align: center;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+h1, h2 {
+    color: #FFD700; /* Gold */
+    text-shadow: 0 0 10px #FFD700;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+input[type="number"], input[type="time"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+    background: #333;
+    color: #fff;
+    font-size: 1em;
+}
+
+button {
+    background: linear-gradient(45deg, #FFD700, #F0C419);
+    color: #333;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+}
+
+#display-panel.hidden {
+    display: none;
+}
+
+.earnings-display {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #FFD700;
+    text-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.currency-symbol {
+    font-size: 0.5em;
+    vertical-align: super;
+    margin-right: 10px;
+}
+
+#motivation-quote {
+    color: #aaa;
+    font-style: italic;
+}
+
+#coin-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+}
+
+#language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#language-switcher button {
+    background: rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+    border: 1px solid #FFD700;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#language-switcher button:hover, #language-switcher button.active {
+    background: #FFD700;
+    color: #333;
+}
+
+#reward-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #FFD700;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    z-index: 200;
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    pointer-events: none;
+}
+
+#reward-modal.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#reward-modal img {
+    max-width: 150px;
+    max-height: 150px;
+    margin-bottom: 15px;
+}
+
+#reward-modal p {
+    font-size: 1.2em;
+    color: #FFD700;
+    margin: 0;
+    text-shadow: 0 0 5px #FFD700;
+}
+
+#emotion-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+#emotion-modal.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+.emotion-modal-content {
+    background: #222;
+    border: 2px solid #FFD700;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #FFD70088;
+    padding: 24px 18px 18px 18px;
+    text-align: center;
+    min-width: 260px;
+}
+#emotion-modal video, #emotion-modal canvas {
+    border-radius: 10px;
+    border: 1.5px solid #FFD700;
+    margin-bottom: 10px;
+}
+#emotion-result {
+    color: #FFD700;
+    font-size: 1.1em;
+    margin: 10px 0 8px 0;
+    min-height: 28px;
+}
+#emotion-modal button {
+    background: linear-gradient(45deg, #FFD700, #F0C419);
+    color: #333;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 6px;
+    margin-top: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+#emotion-modal button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #FFD700;
+}
+
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+    padding-top: 30px;
+    height: auto;
+    min-height: 100vh;
+  }
+  .container {
+    width: 96vw;
+    min-width: unset;
+    max-width: 420px;
+    padding: 18px 6vw 24px 6vw;
+    border-radius: 18px;
+  }
+  h1, h2 {
+    font-size: 1.5em;
+  }
+  .input-group label {
+    font-size: 1.1em;
+  }
+  input[type="number"], input[type="time"] {
+    font-size: 1.15em;
+    padding: 14px 10px;
+    border-radius: 7px;
+  }
+  button, #emotion-modal button {
+    font-size: 1.15em;
+    padding: 14px 0;
+    min-width: 120px;
+    margin: 10px 6px 0 6px;
+    border-radius: 7px;
+  }
+  .earnings-display {
+    font-size: 2.5em;
+  }
+  #reward-modal img {
+    max-width: 90vw;
+    max-height: 120px;
+  }
+  #emotion-modal .emotion-modal-content {
+    min-width: 0;
+    width: 92vw;
+    padding: 12px 2vw 18px 2vw;
+  }
+  #emotion-modal video, #emotion-modal canvas {
+    width: 90vw !important;
+    height: auto !important;
+    max-width: 320px;
+    max-height: 200px;
+  }
+} 

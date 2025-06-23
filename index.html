@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="title">实时工资</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFD700">
+</head>
+<body>
+    <div id="language-switcher">
+        <button id="lang-cn">中</button>
+        <button id="lang-en">EN</button>
+    </div>
+
+    <div class="container">
+        <div id="settings-panel">
+            <h1 data-lang-key="settings_header">我的工资计算器</h1>
+            <div class="input-group">
+                <label for="monthly-salary" data-lang-key="monthly_salary_label">月薪 (元):</label>
+                <input type="number" id="monthly-salary" placeholder="例如: 10000">
+            </div>
+            <div class="input-group">
+                <label for="work-days" data-lang-key="work_days_label">每月工作天数:</label>
+                <input type="number" id="work-days" placeholder="例如: 22">
+            </div>
+            <div class="input-group">
+                <label for="start-time" data-lang-key="start_time_label">上班时间:</label>
+                <input type="time" id="start-time" value="09:00">
+            </div>
+            <div class="input-group">
+                <label for="end-time" data-lang-key="end-time_label">下班时间:</label>
+                <input type="time" id="end-time" value="18:00">
+            </div>
+            <button id="start-btn" data-lang-key="start_button">开始计算</button>
+        </div>
+
+        <div id="display-panel" class="hidden">
+            <h2 data-lang-key="display_header">我正在赚取...</h2>
+            <div class="earnings-display">
+                <span id="currency-symbol">¥</span>
+                <span id="earnings">0.0000</span>
+            </div>
+            <p id="motivation-quote" data-lang-key="motivation_quote">坚持住，每一秒都有价值！</p>
+            <button id="emotion-btn">检测情绪</button>
+            <button id="reset-btn" data-lang-key="reset_button">重新设置</button>
+        </div>
+    </div>
+    <canvas id="coin-canvas"></canvas>
+
+    <div id="reward-modal" class="hidden">
+        <img id="reward-image" src="" alt="Reward"/>
+        <p id="reward-text"></p>
+    </div>
+
+    <div id="emotion-modal" class="hidden">
+        <div class="emotion-modal-content">
+            <video id="emotion-video" autoplay muted playsinline width="240" height="180"></video>
+            <canvas id="emotion-canvas" width="240" height="180" style="display:none;"></canvas>
+            <div id="emotion-result"></div>
+            <button id="emotion-capture">拍照识别</button>
+            <button id="emotion-close">关闭</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
